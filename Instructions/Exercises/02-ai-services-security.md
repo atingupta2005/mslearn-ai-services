@@ -125,7 +125,9 @@ To access the secret in the key vault, your application must use a service princ
     > **Tip**: If you are unsure of your subscription ID, use the **az account show** command to retrieve your subscription information - the subscription ID is the **id** attribute in the output. If you see an error about the object already existing, please choose a different unique name.
 
     ```
+    az login
     az ad sp create-for-rbac -n "api://<spName>" --role owner --scopes subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>
+    az ad sp create-for-rbac -n "api://ag-ai-services" --role owner --scopes subscriptions/6896d70c-606d-4394-a6dc-f6fb42a97dfc/resourceGroups/rg-ai-practice
     ```
 
 The output of this command includes information about your new service principal. It should look similar to this:
@@ -151,7 +153,9 @@ Make a note of the **appId**, **password**, and **tenant** values - you will nee
 3. To assign permission for your new service principal to access secrets in your Key Vault, run the following Azure CLI command, replacing *&lt;keyVaultName&gt;* with the name of your Azure Key Vault resource and *&lt;objectId&gt;* with the value of your service principal's ID value you've just copied.
 
     ```
+    az keyvault list -g rg-ai-practice
     az keyvault set-policy -n <keyVaultName> --object-id <objectId> --secret-permissions get list
+    az keyvault set-policy -n kv-ai-practice --object-id "b5eb67c4-a099-43f9-ae6b-f18ac3e31f2e" --secret-permissions get list
     ```
 
 ### Use the service principal in an application
@@ -177,6 +181,7 @@ Now you're ready to use the service principal identity in an application, so it 
     pip install azure-ai-textanalytics==5.3.0
     pip install azure-identity==1.5.0
     pip install azure-keyvault-secrets==4.2.0
+    pip install setuptools
     ```
 
 3. View the contents of the **keyvault-client** folder, and note that it contains a file for configuration settings:

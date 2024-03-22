@@ -58,6 +58,7 @@ Let's start monitoring by defining an alert rule so you can detect activity in y
 
     ```
     az cognitiveservices account keys list --name <resourceName> --resource-group <resourceGroup>
+    az cognitiveservices account keys list --name ag-ai-services-multi --resource-group rg-ai-practice
     ```
 
     The command returns a list of the keys for your Azure AI services resource.
