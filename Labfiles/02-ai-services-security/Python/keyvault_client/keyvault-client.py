@@ -14,7 +14,7 @@ def main():
         # Get Configuration Settings
         dotenv_path = os.path.expanduser('~/.env') 
 
-load_dotenv(dotenv_path)
+        load_dotenv(dotenv_path)
         ai_endpoint = os.getenv('AI_SERVICE_ENDPOINT')
         key_vault_name = os.getenv('KEY_VAULT')
         app_tenant = os.getenv('TENANT_ID')
