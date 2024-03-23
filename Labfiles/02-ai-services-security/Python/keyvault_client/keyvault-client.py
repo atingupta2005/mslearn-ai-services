@@ -12,7 +12,7 @@ def main():
 
     try:
         # Get Configuration Settings
-        load_dotenv()
+        load_dotenv(~/.env)
         ai_endpoint = os.getenv('AI_SERVICE_ENDPOINT')
         key_vault_name = os.getenv('KEY_VAULT')
         app_tenant = os.getenv('TENANT_ID')
