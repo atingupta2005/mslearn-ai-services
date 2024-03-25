@@ -1,9 +1,6 @@
 # Lab Setup
 
 ## Create Windows 11 VM in Azure Cloud
-```
-- 8 Core
-```
 
 ## Install Choco in powershell
 ```
@@ -41,12 +38,12 @@ dir
 
 ## Connect to Azure CLI
 ```
-az login
+az login -u u1@atingupta.xyz -p <password>
 ```
 
 ## Create SP
 ```
-az ad sp create-for-rbac -n "api://ag-ai-services" --role owner --scopes subscriptions/6896d70c-606d-4394-a6dc-f6fb42a97dfc/resourceGroups/rg-ai-practice
+az ad sp create-for-rbac -n "api://ag-ai-services" --role owner --scopes subscriptions/c0cdfbe3-2e41-4bb3-a3d9-b40843a3c3f7/resourceGroups/rg-practice-ai-102
 ```
 
 ```
@@ -58,14 +55,6 @@ az ad sp create-for-rbac -n "api://ag-ai-services" --role owner --scopes subscri
 }
 ```
 
-## Get Object ID of SP
-```
-az ad sp show --id "bb7c5100-f900-400b-ad19-83ac24fd128"
-```
+## Create Key Vault using Azure Portal
 
-## Set permissions
-```
-az keyvault list -g rg-ai-practice
-az keyvault set-policy -n kv-ai-practice --object-id "bb7c5100-f900-400b-ad19-83ac24fd128" --secret-permissions get list
-```
-
+## Set permissions on Key Vault using Azure Portal
