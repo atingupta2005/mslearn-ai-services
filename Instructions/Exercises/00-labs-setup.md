@@ -20,7 +20,7 @@ choco install vscode -y
 choco install python -y
 choco install dotnetcore-sdk -y
 choco install azure-cli -y
-exit
+Restart-Computer
 ```
 
 ## Clone Repos in another powershell
